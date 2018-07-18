@@ -1,18 +1,32 @@
 // pages/list/list.js
+// 引入数据
+let datas = require('../../datas/list-data');
+console.log(datas, typeof datas);
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    listArr: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      listArr: datas.list_data
+    })
+  },
+  toDetail(event){
+    console.log(event);
+    let index = event.currentTarget.dataset.id;
+    let url = '/pages/detail/detail?id=' + index;
+    // 跳转到详情页面
+    wx.navigateTo({
+      url
+    })
   },
 
   /**

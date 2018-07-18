@@ -1,38 +1,25 @@
-// pages/index/index.js
-Page({ // 注册当前页面的
+// pages/detail/detail.js
+let datas = require('../../datas/list-data');
+Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-		msg: '2222北方汉子',
-		userInfo: null
+
   },
-	handleClick(){
-		// 点击跳转页面
-		wx.navigateTo({
-			url: '/pages/list/list'
-		})
-	},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-		console.log(this);
-		// console.log('页面加载');
-		// 获取用户的登录信息
-		wx.getUserInfo({
-			success: (data) => {
-				console.log(this, data);
-				// 修改data中额数据
-				this.setData({
-					userInfo: data.userInfo
-				})
-			}
-		})
-
-	
+    console.log('detail页面接收的数据：' , options);
+    let index = options.id;
+    let detailObj = datas.list_data[index];
+    // 更新data中的数据
+    this.setData({
+      index, detailObj
+    })
   },
 
   /**

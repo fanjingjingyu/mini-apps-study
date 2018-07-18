@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    let arr = [1,2,3,4]
+    console.log(arr);
+    
+    // typeof 返回值有几种： Number String boolean undefined Object Function Symbol
+    let symbol = Symbol('Symbol.iterator');
+    let symbol2 = Symbol('two');
+    // console.log(symbol, typeof symbol);
+    console.log(symbol === symbol2);
+    console.log(symbol, symbol2);
+
+    // symbol的值是唯一的
+    let obj = {};
+    let sex = '性别';
+    obj[sex] = '男';
+    console.log(obj);
+    obj[symbol] = 'hello symbol';
+    console.log(obj);
+
+    // iterator 遍历器对象
+    for(let i of arr){
+      console.log(i);
+    }
+
+</script>
+</body>
+</html>
